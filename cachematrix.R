@@ -1,7 +1,11 @@
-## Put comments here that give an overall description of what your
-## functions do
 
 ## makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
+
+## child functions
+# get: returns the matrix
+# set(matrix): sets the new matrix, and clears out the mInverse var
+# setinverse : creates/sets the inverse of the matrix in the environment
+# getinverse : returns the inverse
 
 makeCacheMatrix <- function(x = matrix()) {
   
@@ -49,11 +53,12 @@ cacheSolve <- function(x, ...) {
   # if it is null, get the matrix, then calculate the inverse
   m <- x$get()
   
+  # set the mInverse by solving the inverse for m
   mInverse <- solve(m) 
   
   x$setinverse(mInverse)
-  ## Return a matrix that is the inverse of 'x'
   
+  ## Return a matrix that is the inverse of 'x'
   mInverse
 
 }
